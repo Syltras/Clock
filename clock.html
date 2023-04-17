@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+			background-color: #ffffff;
+		}
+        .clock {
+			text-align: center;
+			font-size: 500% ;
+			color: #faff5b;
+            margin-top: 15%;
+		}
+        .seconds {
+			font-size: 100%;
+			transition: font-size 1s ease-in-out;}
+
+    </style>
+</head>
+<body>
+
+    <div id="clockk" class="clock"></div>
+
+    <script>
+        
+        // My Clock
+
+        // let sec = 0
+        // let minu = 0
+        // let hour = 0
+        
+        // function time() {
+        //     sec == 59 ? (sec = 0, minu < 59 ? minu++ : (minu = 0, hour++)) : sec++;
+        //     hour == 23 ? hour == 0 : "";
+
+        //     console.log(hour,":", minu,":", sec);
+        // }
+        // setInterval(time, 1000)
+
+
+        // Eyal's Clock
+
+        function clock(){
+            const d = new Date();
+            let second = d.getSeconds();
+            let minute = d.getMinutes();
+            let hour = d.getHours();
+            let month = d.getMonth();
+            myClock=`${hour}:${minute}:${second}`
+            clockk.innerHTML = myClock
+            
+            let fontSizes = ["100%", "200%", "300%", "400%", "500%", "600%", "1000%"];
+            let randomSize = fontSizes[Math.floor(Math.random() * fontSizes.length)];       //  changes the size of the clock
+            clockk.style.fontSize = randomSize
+
+            let body = document.getElementsByTagName("body")[0];
+			if (hour < 6 || hour >= 20) {
+				body.style.backgroundColor = "darkorchid";
+			} else if (hour >= 6 && hour < 12) {
+				body.style.backgroundColor = "lightblue";
+			} else if (hour >= 12 && hour < 18) {
+				body.style.backgroundColor = "blue";
+			} else {
+				body.style.backgroundColor = "darkorchid";         // changes color depending on day
+			}
+            }
+        setInterval(clock,1000)
+        
+
+    </script>
+</body>
+</html>
